@@ -47,7 +47,6 @@
   "devDependencies": {
     "@slidev/cli": "^52.2.4"
   },
-  "//": "Learn more: https://sli.dev/guide/write-theme.html",
   "slidev": {
     "colorSchema": "both",
     "defaults": {
