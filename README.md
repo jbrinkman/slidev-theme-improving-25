@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/slidev-theme-improving-25?color=3AB9D4&label=)](https://www.npmjs.com/package/slidev-theme-improving-25)
 
-A (...) theme for [Slidev](https://github.com/slidevjs/slidev).
+A theme for [Slidev](https://github.com/slidevjs/slidev) based on the Improving Powerpoint theme.
 
 <!--
   Learn more about how to write a theme:
@@ -51,6 +51,7 @@ This theme provides the following components:
 
 ### `ImprovingFooter`
 A comprehensive footer component that displays:
+
 - **Page numbers** - Current slide number
 - **Global title** - Presentation title from frontmatter
 - **Global author** - Author name from frontmatter  
@@ -59,6 +60,7 @@ A comprehensive footer component that displays:
 
 #### Footer Configuration
 Control footer elements via frontmatter:
+
 ```yaml
 ---
 showFooter: true          # Master switch (default: true)
@@ -69,8 +71,6 @@ showAuthor: true         # Show author (default: true)
 customLogo: './logo.svg' # Custom logo path (optional)
 ---
 ```
-
-
 
 ## Contributing
 
@@ -93,11 +93,13 @@ Based on official Improving PowerPoint theme colors:
 - **Utility classes**: Complete set of `text-improving-*` and `bg-improving-*` classes
 
 ### Typography
+
 - **Headings**: Use Accent 2 color (#005596) with subtle borders
 - **Links**: Proper hyperlink and visited link colors
 - **Font**: [Poppins](https://fonts.google.com/specimen/Poppins) sans-serif for clean, modern appearance
 
 ### Layout Features
+
 - **Responsive design**: Works on different screen sizes
 - **Consistent footer**: Appears on all theme layouts. Can be hidden when not needed.
 - **Image layouts**: Support for left and right image positioning

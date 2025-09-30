@@ -1,14 +1,40 @@
 {
   "name": "slidev-theme-improving-25",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A professional Slidev theme with Improving branding, featuring configurable footer, official color palette, and light/dark mode support",
   "type": "module",
+  "author": "Joe Brinkman",
+  "license": "MIT",
+  "homepage": "https://github.com/jbrinkman/slidev-theme-improving-25#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbrinkman/slidev-theme-improving-25.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jbrinkman/slidev-theme-improving-25/issues"
+  },
   "keywords": [
     "slidev-theme",
-    "slidev"
+    "slidev",
+    "presentation",
+    "improving",
+    "theme",
+    "slides"
   ],
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "slidev": ">=0.48.0"
   },
+  "files": [
+    "components",
+    "layouts",
+    "setup",
+    "styles",
+    "assets",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "slidev build example.md",
     "dev": "slidev example.md --open",
@@ -26,7 +52,7 @@
     "colorSchema": "both",
     "defaults": {
       "fonts": {
-        "sans": "Nunito Sans",
+        "sans": "Poppins",
         "mono": "Fira Code"
       }
     }
