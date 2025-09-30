@@ -1,0 +1,149 @@
+:root {
+  /* Improving PowerPoint Theme Colors */
+  --improving-dark1: #000000;
+  --improving-dark2: #44546a;
+  --improving-light1: #ffffff;
+  --improving-light2: #e7e6e6;
+  --improving-accent1: #4597d3;
+  --improving-accent2: #005596;
+  --improving-accent3: #ff9300;
+  --improving-accent4: #5bc2a7;
+  --improving-accent5: #606060;
+  --improving-accent6: #f5bb41;
+  --improving-hyperlink: #0563c1;
+  --improving-hyperlink-followed: #954f72;
+
+  /* Slidev theme mappings */
+  --slidev-theme-primary: var(--improving-accent2);
+  --slidev-theme-secondary: var(--improving-accent1);
+  --slidev-theme-accent: var(--improving-accent3);
+  --slidev-theme-background: var(--improving-light1);
+  --slidev-theme-foreground: var(--improving-dark1);
+}
+
+/* Heading styles using Accent2 color */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--improving-accent2);
+  font-weight: 600;
+}
+
+/* H1 title bar styling - excludes cover and intro layouts */
+h1 {
+  border-bottom: 1px solid var(--improving-light2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Dark mode H1 border - uses Dark2 for subtle effect on dark backgrounds */
+.dark h1 {
+  border-bottom: 1px solid var(--improving-dark2);
+}
+
+/* Remove border for cover and intro layouts */
+.slidev-layout.cover h1,
+.slidev-layout.intro h1 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Hyperlink styles */
+a {
+  color: var(--improving-hyperlink);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--improving-hyperlink-followed);
+}
+
+/* Utility classes for Improving colors */
+.text-improving-dark1 {
+  color: var(--improving-dark1);
+}
+.text-improving-dark2 {
+  color: var(--improving-dark2);
+}
+.text-improving-light1 {
+  color: var(--improving-light1);
+}
+.text-improving-light2 {
+  color: var(--improving-light2);
+}
+.text-improving-accent1 {
+  color: var(--improving-accent1);
+}
+.text-improving-accent2 {
+  color: var(--improving-accent2);
+}
+.text-improving-accent3 {
+  color: var(--improving-accent3);
+}
+.text-improving-accent4 {
+  color: var(--improving-accent4);
+}
+.text-improving-accent5 {
+  color: var(--improving-accent5);
+}
+.text-improving-accent6 {
+  color: var(--improving-accent6);
+}
+
+.bg-improving-dark1 {
+  background-color: var(--improving-dark1);
+}
+.bg-improving-dark2 {
+  background-color: var(--improving-dark2);
+}
+.bg-improving-light1 {
+  background-color: var(--improving-light1);
+}
+.bg-improving-light2 {
+  background-color: var(--improving-light2);
+}
+.bg-improving-accent1 {
+  background-color: var(--improving-accent1);
+}
+.bg-improving-accent2 {
+  background-color: var(--improving-accent2);
+}
+.bg-improving-accent3 {
+  background-color: var(--improving-accent3);
+}
+.bg-improving-accent4 {
+  background-color: var(--improving-accent4);
+}
+.bg-improving-accent5 {
+  background-color: var(--improving-accent5);
+}
+.bg-improving-accent6 {
+  background-color: var(--improving-accent6);
+}
+
+.slidev-layout.cover,
+.slidev-layout.intro {
+  @apply h-full grid;
+
+  h1 {
+    @apply text-5xl leading-20;
+  }
+
+  h1 + p {
+    @apply -mt-2 opacity-50 mb-4;
+  }
+
+  p + h2,
+  ul + h2,
+  table + h2 {
+    @apply mt-10;
+  }
+}

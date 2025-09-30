@@ -1,0 +1,21 @@
+{
+  "files.associations": {
+    "*.md": "markdown"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": false
+    }
+  },
+  "markdownlint.config": {
+    "MD022": {
+      "lines_above": 0,
+      "lines_below": 0
+    },
+    "MD025": false,
+    "MD041": false
+  },
+  "prettier.proseWrap": "preserve",
+  "prettier.embeddedLanguageFormatting": "off"
+}

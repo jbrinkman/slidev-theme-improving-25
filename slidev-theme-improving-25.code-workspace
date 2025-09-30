@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"slidev.include": [
+			"**/slides.md",
+			"example.md"
+		],
+		"editor.formatOnSave": false,
+		"markdownlint.config": {
+			"MD033": false,
+			"MD025": false,
+			"MD022": false,
+			"MD003": false,
+			"MD013": false,
+			"MD041": false,
+			"MD001": false
+		}
+	},
+	"[markdown]": {
+		"editor.formatOnSave": false,
+		"editor.defaultFormatter": null
+	}
+}
