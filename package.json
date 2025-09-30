@@ -22,7 +22,7 @@
     "slides"
   ],
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=22.0.0",
     "slidev": ">=0.48.0"
   },
   "files": [
