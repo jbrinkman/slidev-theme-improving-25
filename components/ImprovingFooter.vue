@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showFooter" class="improving-footer fixed bottom-0 left-0 right-0 h-11 z-10"
+    <div v-if="showFooter" class="improving-footer fixed bottom-0 left-0 right-0 h-10 z-10"
         style="background: linear-gradient(90deg, #4A90B8 0%, #5BA8A0 100%);">
         <div class="footer-content grid grid-cols-4 h-full px-6">
             <!-- Column 1: Page Number -->
