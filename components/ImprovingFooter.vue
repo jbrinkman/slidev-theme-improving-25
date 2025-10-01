@@ -67,7 +67,7 @@ const showTitle = computed(() =>
 )
 
 const logoSrc = computed(() =>
-    $frontmatter.customLogo || './assets/logo.png'
+    $frontmatter.customLogo || new URL('../assets/logo.png', import.meta.url).href
 )
 
 // Access global frontmatter for title and author content
