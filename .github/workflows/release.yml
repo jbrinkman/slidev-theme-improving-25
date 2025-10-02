@@ -88,7 +88,14 @@ jobs:
             echo "Please configure NPM_TOKEN in repository secrets"
             exit 1
           fi
+          if [ -z "${{ secrets.GITHUB_TOKEN }}" ]; then
+            echo "❌ Error: GITHUB_TOKEN is not available"
+            echo "This should be automatically provided by GitHub Actions"
+            exit 1
+          fi
           echo "✅ Environment variables validated"
+          echo "✅ NPM_TOKEN: configured"
+          echo "✅ GITHUB_TOKEN: available"
       
       - name: Run semantic-release (dry-run)
         if: ${{ inputs.dry-run == true }}
@@ -98,6 +105,7 @@ jobs:
           npx semantic-release --dry-run
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           CI: true
         continue-on-error: false
@@ -114,6 +122,7 @@ jobs:
           npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           CI: true
         continue-on-error: false
