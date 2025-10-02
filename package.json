@@ -33,6 +33,7 @@
     "assets",
     "package.json",
     "README.md",
+    "CONTRIBUTING.md",
     "LICENSE"
   ],
   "scripts": {
