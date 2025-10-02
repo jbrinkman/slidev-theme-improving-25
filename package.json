@@ -39,7 +39,8 @@
     "build": "slidev build example.md",
     "dev": "slidev example.md --open",
     "export": "slidev export example.md",
-    "screenshot": "slidev export example.md --format png"
+    "screenshot": "slidev export example.md --format png",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@slidev/types": "^52.2.4"
@@ -50,7 +51,10 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^9.2.0",
-    "@semantic-release/npm": "^11.0.0"
+    "@semantic-release/npm": "^11.0.0",
+    "@commitlint/cli": "^18.4.0",
+    "@commitlint/config-conventional": "^18.4.0",
+    "husky": "^8.0.3"
   },
   "slidev": {
     "colorSchema": "both",

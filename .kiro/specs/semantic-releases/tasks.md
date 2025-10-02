@@ -36,11 +36,9 @@
   - Add examples of proper commit messages for different scenarios
   - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
 
-- [ ] 7. Implement commitlint with Husky for commit message validation
+- [x] 7. Implement commitlint with Husky for commit message validation
   - Install commitlint and Husky dependencies for commit message validation
   - Configure commitlint with conventional commit rules
   - Set up Husky git hooks to validate commit messages before commits
   - Create commitlint configuration file with proper conventional commit rules
   - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
-
-
