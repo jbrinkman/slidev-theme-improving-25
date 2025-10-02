@@ -72,10 +72,6 @@ customLogo: './logo.svg' # Custom logo path (optional)
 ---
 ```
 
-## Contributing
-
-Interested in contributing? See our [Contributing Guide](CONTRIBUTING.md) for development setup, commit guidelines, and pull request process.
-
 ## Features
 
 ### Color Theme
@@ -100,3 +96,7 @@ Based on official Improving PowerPoint theme colors:
 - **Consistent footer**: Appears on all theme layouts. Can be hidden when not needed.
 - **Image layouts**: Support for left and right image positioning
 - **Theme-aware styling**: Adapts to light/dark mode preferences
+
+## Contributing
+
+Interested in contributing? See our [Contributing Guide](CONTRIBUTING.md) for development setup, commit guidelines, and pull request process.
