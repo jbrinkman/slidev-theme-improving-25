@@ -1,3 +1,16 @@
+## [1.2.0](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.1.0...v1.2.0) (2025-10-02)
+
+
+### 🚀 Features
+
+* reorder changelog sections to prioritize features over bug fixes ([b69023a](https://github.com/jbrinkman/slidev-theme-improving-25/commit/b69023a15e0de77a8d0482559cb260c121d6a435))
+
+
+### 📚 Documentation
+
+* move contributing guidelines to dedicated CONTRIBUTING.md file ([5b6d277](https://github.com/jbrinkman/slidev-theme-improving-25/commit/5b6d277c267d560a7082cf766924de5a83556f75))
+* move contributing section to end of README ([9ba9a0d](https://github.com/jbrinkman/slidev-theme-improving-25/commit/9ba9a0d5955bb9d75330c94e8ad21923140f4248))
+
 # [1.1.0](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.0.3...v1.1.0) (2025-10-02)
 
 
