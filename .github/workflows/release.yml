@@ -1,0 +1,156 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: 'Release type (auto, patch, minor, major)'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - patch
+          - minor
+          - major
+      dry-run:
+        description: 'Perform a dry run without publishing'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    
+    # Only run on main branch
+    if: github.ref == 'refs/heads/main'
+    
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: false
+      
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+      - name: Validate branch and permissions
+        run: |
+          if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+            echo "❌ Error: Release workflow can only be run on main branch"
+            echo "Current branch: ${{ github.ref }}"
+            exit 1
+          fi
+          echo "✅ Branch validation passed: running on main branch"
+          echo "✅ Permissions configured: contents, issues, pull-requests"
+          echo "✅ Environment: Node.js $(node --version), pnpm $(pnpm --version)"
+      
+      - name: Validate environment variables
+        run: |
+          if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+            echo "❌ Error: NPM_TOKEN secret is not configured"
+            echo "Please configure NPM_TOKEN in repository secrets"
+            exit 1
+          fi
+          echo "✅ Environment variables validated"
+      
+      - name: Run semantic-release (dry-run)
+        if: ${{ inputs.dry-run == true }}
+        run: |
+          echo "🔍 Running semantic-release in dry-run mode..."
+          set -e
+          npx semantic-release --dry-run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CI: true
+        continue-on-error: false
+      
+      - name: Run semantic-release
+        if: ${{ inputs.dry-run == false }}
+        run: |
+          if [ "${{ inputs.release-type }}" != "auto" ]; then
+            echo "📋 Manual release type specified: ${{ inputs.release-type }}"
+            echo "Note: semantic-release will still analyze commits for version determination"
+          fi
+          echo "🚀 Running semantic-release..."
+          set -e
+          npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CI: true
+        continue-on-error: false
+      
+      - name: Release success notification
+        if: success() && inputs.dry-run == false
+        run: |
+          echo "✅ Release completed successfully!"
+          echo "📦 New version has been published to npm"
+          echo "🏷️ GitHub release has been created with changelog"
+          echo "📄 CHANGELOG.md has been updated"
+          echo "🔗 Check the releases page: https://github.com/${{ github.repository }}/releases"
+      
+      - name: Dry-run success notification
+        if: success() && inputs.dry-run == true
+        run: |
+          echo "✅ Dry-run completed successfully!"
+          echo "🔍 Release process validated without publishing"
+          echo "📋 Check the logs above to see what would be released"
+          echo "💡 Run without dry-run flag to perform actual release"
+      
+      - name: Release failure notification
+        if: failure()
+        run: |
+          echo "❌ Release failed!"
+          echo "🔍 Common failure reasons:"
+          echo "  - No releasable changes found (this is normal - not an error)"
+          echo "  - NPM_TOKEN secret not configured or invalid"
+          echo "  - Network issues during npm publish"
+          echo "  - GitHub token permissions insufficient"
+          echo "  - Commit message format doesn't follow conventional commits"
+          echo "  - Version conflict or tag already exists"
+          echo "📋 Check the workflow logs above for specific error details"
+          echo "🔗 Workflow URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          echo ""
+          echo "💡 Troubleshooting tips:"
+          echo "  - For 'no releasable changes': ensure commits follow conventional format (feat:, fix:, etc.)"
+          echo "  - For npm publish errors: verify NPM_TOKEN has publish permissions"
+          echo "  - For GitHub errors: ensure GITHUB_TOKEN has contents:write permission"
+          echo "  - Run with dry-run flag first to test the release process"
