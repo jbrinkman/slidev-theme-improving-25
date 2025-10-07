@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.2.0...v1.3.0) (2025-10-07)
+
+
+### 🚀 Features
+
+* **config:** add Prettier configuration and update project dependencies ([37aa1c0](https://github.com/jbrinkman/slidev-theme-improving-25/commit/37aa1c059d1c9aeb5c6380df26dc6511b155ec54))
+
 ## [1.2.0](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.1.0...v1.2.0) (2025-10-02)
 
 
