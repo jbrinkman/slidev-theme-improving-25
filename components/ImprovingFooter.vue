@@ -59,11 +59,11 @@ const showLogo = computed(() =>
 )
 
 const showAuthor = computed(() =>
-    $frontmatter.showAuthor !== false
+    $frontmatter.showAuthor !== false && globalAuthor.value !== ''
 )
 
 const showTitle = computed(() =>
-    $frontmatter.showTitle !== false
+    $frontmatter.showTitle !== false && globalTitle.value !== ''
 )
 
 const logoSrc = computed(() =>
