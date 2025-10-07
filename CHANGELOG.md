@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.3.0...v1.3.1) (2025-10-07)
+
+
+### 🐛 Bug Fixes
+
+* **footer:** conditionally render author and title sections ([02aa7fc](https://github.com/jbrinkman/slidev-theme-improving-25/commit/02aa7fca01b65221a3fbc9571d29547ca6bdbef2))
+
 ## [1.3.0](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.2.0...v1.3.0) (2025-10-07)
 
 
