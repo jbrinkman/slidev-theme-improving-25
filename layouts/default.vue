@@ -1,6 +1,8 @@
 <template>
     <div class="slidev-layout default">
-        <slot />
+        <div class="my-auto w-full">
+            <slot />
+        </div>
     </div>
 
     <!-- ImprovingFooter component -->
