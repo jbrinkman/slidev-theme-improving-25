@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.3.2...v1.4.0) (2025-10-14)
+
+
+### 🚀 Features
+
+* add backgroundDim property to cover layout ([c709b27](https://github.com/jbrinkman/slidev-theme-improving-25/commit/c709b270369be2cee31896753717eaef31b6f367))
+
 ## [1.3.2](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.3.1...v1.3.2) (2025-10-14)
 
 
