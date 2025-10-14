@@ -12,27 +12,21 @@ export function resolveAssetUrl(url: string) {
 export function handleBackground(background?: string, dim = false, backgroundSize = 'cover'): CSSProperties {
   const isColor = background && (background[0] === '#' || background.startsWith('rgb'))
 
-  const style = {
-    background: isColor
-      ? background
-      : undefined,
-    color: (background && !isColor)
-      ? 'white'
-      : undefined,
-    backgroundImage: isColor
-      ? undefined
-      : background
-        ? dim
-          ? `linear-gradient(#0005, #0008), url(${resolveAssetUrl(background)})`
-          : `url("${resolveAssetUrl(background)}")`
-        : undefined,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    backgroundSize,
-  }
+  const style: CSSProperties = {}
 
-  if (!style.background)
-    delete style.background
+  if (isColor) {
+    // It's a color value
+    style.background = background
+  } else if (background) {
+    // It's an image URL
+    style.color = 'white'
+    style.backgroundImage = dim
+      ? `linear-gradient(#0005, #0008), url(${resolveAssetUrl(background)})`
+      : `url("${resolveAssetUrl(background)}")`
+    style.backgroundRepeat = 'no-repeat'
+    style.backgroundPosition = 'center'
+    style.backgroundSize = backgroundSize
+  }
 
   return style
 }
