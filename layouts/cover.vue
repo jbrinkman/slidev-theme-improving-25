@@ -11,19 +11,14 @@ const props = defineProps({
   },
 })
 
-// Access frontmatter background, with fallback to default
+// Access frontmatter background, no default
 const backgroundValue = computed(() => {
-  return props.background || $frontmatter.background || 'https://source.unsplash.com/collection/94734566/1920x1080'
+  return props.background || $frontmatter.background
 })
 
-console.log('Background prop:', props.background)
-console.log('Frontmatter background:', $frontmatter.background)
-console.log('Background value:', backgroundValue.value)
-
 const style = computed(() => {
-  const result = handleBackground(backgroundValue.value, true)
-  console.log('Computed style:', result)
-  return result
+  // Only apply dim effect if background is actually provided
+  return backgroundValue.value ? handleBackground(backgroundValue.value, true) : {}
 })
 </script>
 
