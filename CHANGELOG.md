@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.3.1...v1.3.2) (2025-10-14)
+
+
+### 🐛 Bug Fixes
+
+* properly handle color backgrounds in cover layout ([4c678da](https://github.com/jbrinkman/slidev-theme-improving-25/commit/4c678dac3cc9438ab2e3b82a0345e5a7d21080a9))
+
 ## [1.3.1](https://github.com/jbrinkman/slidev-theme-improving-25/compare/v1.3.0...v1.3.1) (2025-10-07)
 
 
