@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/slidev-theme-improving-25?color=3AB9D4&label=)](https://www.npmjs.com/package/slidev-theme-improving-25)
 
-A theme for [Slidev](https://github.com/slidevjs/slidev) based on the Improving Powerpoint theme.
+A theme for [Slidev](https://github.com/slidevjs/slidev) built on the Improving Design System: brand colors, Poppins and Khula type, approved logos and gradients.
 
 <!--
   Learn more about how to write a theme:
@@ -36,6 +36,9 @@ This theme provides the following layouts:
 ### `default`
 The standard layout with ImprovingFooter. Includes H1 title bar styling with subtle borders and supports both light and dark modes.
 
+### `cover`
+Title slide with the full logo and tagline at the top left. Set `background` in frontmatter to a color, an image URL or `gradient-deep`; on dark grounds the text switches to paper and the knockout logo is used. Set `showLogo: false` to hide the logo.
+
 ### `image-right`
 Two-column layout with content on the left and image on the right. Includes ImprovingFooter.
 
@@ -56,7 +59,7 @@ A comprehensive footer component that displays:
 - **Global title** - Presentation title from frontmatter
 - **Global author** - Author name from frontmatter  
 - **Company logo** - Improving logo with custom logo support
-- **Gradient background** - Official Improving brand colors
+- **Brand band** - Improving Blue with white text and the knockout logo, edged with the approved deep gradient
 
 #### Footer Configuration
 Control footer elements via frontmatter:
@@ -74,21 +77,31 @@ customLogo: './logo.svg' # Custom logo path (optional)
 
 ## Features
 
-### Color Theme
-Based on official Improving PowerPoint theme colors:
+### Design system
 
-![Color Theme](assets/slides/6.png)
+Styles are generated from the Improving Design System tokens in `styles/tokens.css`, which also carries the font faces. Slide CSS reads those variables and never hard-codes brand values.
 
-- **Primary Colors**: Dark1, Dark2, Light1, Light2
-- **Accent Colors**: 6 branded accent colors for highlights and emphasis
-- **Automatic theming**: Supports both light and dark modes
-- **Utility classes**: Complete set of `text-improving-*` and `bg-improving-*` classes
+### Color
+
+- **Brand**: Improving Blue `#005596` for headlines, links and the footer; Light Blue `#4597D3` for hover states and gradients
+- **Accents**: green, orange, purple and gray, used as highlights only
+- **Neutrals**: the `ink-900` to `ink-50` ramp for text, borders and panels
+- **Gradients**: only `gradient-deep` and `gradient-fresh` are approved
+- **Utility classes**: `text-improving-blue`, `bg-accent-green`, `bg-ink-100`, `bg-gradient-deep` and the rest of the design system palette
+- **Dark mode**: the design system defines a light theme only. Dark mode is derived from the same tokens (`ink-900` ground, Light Blue headings and links)
+- **Deprecated**: the former PowerPoint palette (`--improving-accent1` to `--improving-accent6`, `text-improving-accent*` and `bg-improving-accent*`) still works and now resolves to the nearest design system token
 
 ### Typography
 
-- **Headings**: Use Accent 2 color (#005596) with subtle borders
-- **Links**: Proper hyperlink and visited link colors
-- **Font**: [Poppins](https://fonts.google.com/specimen/Poppins) sans-serif for clean, modern appearance
+- **Headings**: [Poppins](https://fonts.google.com/specimen/Poppins) in Improving Blue, with tight tracking. `h5` and `h6` render as capitalized eyebrows
+- **Body**: [Khula](https://fonts.google.com/specimen/Khula) at 18px in Ink 900
+- **Cover**: Poppins bold at 48px
+- **Links**: Improving Blue, underlined, Light Blue on hover
+- **Fonts are bundled**, so slides render and export offline. Only the code font (Fira Code) loads from Google Fonts
+
+### Components
+
+Class-based components from the design system, usable in any slide: `eyebrow`, `badge` (`blue`, `green`, `orange`, `purple`, `gray`), `pull-quote`, `stat-grid` with `stat`, `feature-grid` with `feature-card`, and `cta-banner`. See `example.md` for markup.
 
 ### Layout Features
 

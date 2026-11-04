@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useSlideContext } from '@slidev/client'
-import { handleBackground } from './layoutHelper'
+import { handleBackground, isDarkBackground } from './layoutHelper'
+import logoFullTagline from '../assets/logo-full-tagline.svg'
+import logoKnockout from '../assets/logo-full-knockout.svg'
 
 const { $frontmatter } = useSlideContext()
 
@@ -29,15 +31,35 @@ const style = computed(() => {
   // Only apply background styling if background is actually provided
   return backgroundValue.value ? handleBackground(backgroundValue.value, shouldDim.value) : {}
 })
+
+// A fixed background pins the layout to light or dark; otherwise it follows the color scheme
+const onDark = computed(() => isDarkBackground(backgroundValue.value))
+const backgroundMode = computed(() => {
+  if (!backgroundValue.value)
+    return ''
+  return onDark.value ? 'on-dark' : 'on-light'
+})
+
+// The cover carries the primary logo, so the footer logo is hidden here
+const showLogo = computed(() => $frontmatter.showLogo !== false)
+
+const customLogo = computed(() => $frontmatter.customLogo)
 </script>
 
 <template>
-  <div class="slidev-layout cover text-center" :style="style">
+  <div class="slidev-layout cover text-center" :class="backgroundMode" :style="style">
+    <template v-if="showLogo">
+      <img v-if="customLogo" :src="customLogo" alt="Improving" class="cover-logo">
+      <template v-else>
+        <img :src="logoFullTagline" alt="Improving" class="cover-logo logo-on-light">
+        <img :src="logoKnockout" alt="Improving" class="cover-logo logo-on-dark">
+      </template>
+    </template>
     <div class="my-auto w-full">
       <slot />
     </div>
   </div>
 
   <!-- ImprovingFooter component -->
-  <ImprovingFooter />
+  <ImprovingFooter hide-logo />
 </template>

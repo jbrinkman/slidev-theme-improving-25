@@ -1,50 +1,130 @@
-:root {
-  /* Improving PowerPoint Theme Colors */
-  --improving-dark1: #000000;
-  --improving-dark2: #44546a;
-  --improving-light1: #ffffff;
-  --improving-light2: #e7e6e6;
-  --improving-accent1: #4597d3;
-  --improving-accent2: #005596;
-  --improving-accent3: #ff9300;
-  --improving-accent4: #5bc2a7;
-  --improving-accent5: #606060;
-  --improving-accent6: #f5bb41;
-  --improving-hyperlink: #0563c1;
-  --improving-hyperlink-followed: #954f72;
+/*
+ * Improving theme styles. Every value comes from the Improving Design System
+ * tokens in ./tokens.css; do not hard-code colors, sizes or radii here.
+ */
 
+:root,
+.slidev-layout.on-light {
   /* Slidev theme mappings */
-  --slidev-theme-primary: var(--improving-accent2);
-  --slidev-theme-secondary: var(--improving-accent1);
-  --slidev-theme-accent: var(--improving-accent3);
-  --slidev-theme-background: var(--improving-light1);
-  --slidev-theme-foreground: var(--improving-dark1);
+  --slidev-theme-primary: var(--improving-blue);
+  --slidev-theme-secondary: var(--improving-light-blue);
+  --slidev-theme-accent: var(--accent-orange);
+  --slidev-theme-background: var(--paper);
+  --slidev-theme-foreground: var(--ink-900);
+
+  /* Semantic roles for slide content (light) */
+  --ds-surface: var(--color-surface);
+  --ds-text: var(--color-text);
+  --ds-text-muted: var(--color-text-muted);
+  --ds-heading: var(--improving-blue);
+  --ds-link: var(--color-primary);
+  --ds-link-hover: var(--color-primary-soft);
+  --ds-border: var(--color-border);
+  --ds-tint: var(--color-surface-alt);
+
+  /*
+   * Deprecated aliases for the former PowerPoint palette. They now resolve to
+   * the closest design system token; prefer the --improving-* and --ink-*
+   * tokens in new slides.
+   */
+  --improving-dark1: var(--ink-900);
+  --improving-dark2: var(--ink-700);
+  --improving-light1: var(--paper);
+  --improving-light2: var(--ink-100);
+  --improving-accent1: var(--improving-light-blue);
+  --improving-accent2: var(--improving-blue);
+  --improving-accent3: var(--accent-orange);
+  --improving-accent4: var(--accent-green);
+  --improving-accent5: var(--ink-500);
+  --improving-accent6: var(--accent-orange);
+  --improving-hyperlink: var(--improving-blue);
+  --improving-hyperlink-followed: var(--improving-blue-deep);
 }
 
-/* Heading styles using Accent2 color */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--improving-accent2);
-  font-weight: 600;
+/*
+ * The design system defines a light theme only. Dark mode is derived from the
+ * same tokens: ink-900 ground, paper text, and improving-light-blue (5.9:1 on
+ * ink-900) wherever blue text is needed.
+ */
+.dark {
+  --slidev-theme-background: var(--ink-900);
+  --slidev-theme-foreground: var(--paper);
+
+  --ds-surface: var(--ink-900);
+  --ds-text: var(--ink-50);
+  --ds-text-muted: var(--ink-300);
+  --ds-heading: var(--improving-light-blue);
+  --ds-link: var(--improving-light-blue);
+  --ds-link-hover: var(--paper);
+  --ds-border: var(--ink-700);
+  --ds-tint: var(--ink-700);
 }
 
-/* H1 title bar styling - excludes cover and intro layouts */
-h1 {
-  border-bottom: 1px solid var(--improving-light2);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+/* Base surface and body type: Khula, body-lg */
+.slidev-layout {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: var(--fs-18);
+  line-height: var(--lh-normal);
+  background-color: var(--ds-surface);
+  color: var(--ds-text);
 }
 
-/* Dark mode H1 border - uses Dark2 for subtle effect on dark backgrounds */
-.dark h1 {
-  border-bottom: 1px solid var(--improving-dark2);
+/* Headings: Poppins, improving-blue, tight tracking */
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3,
+.slidev-layout h4,
+.slidev-layout h5,
+.slidev-layout h6 {
+  font-family: var(--font-display);
+  color: var(--ds-heading);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-tight);
 }
 
-/* Remove border for cover and intro layouts */
+.slidev-layout h1 {
+  font-size: var(--fs-36);
+}
+
+.slidev-layout h2 {
+  font-size: var(--fs-28);
+}
+
+.slidev-layout h3 {
+  font-size: var(--fs-22);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-normal);
+}
+
+.slidev-layout h4 {
+  font-size: var(--fs-18);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* h5 and h6 are eyebrows: capitals, wide tracking, 12px */
+.slidev-layout h5,
+.slidev-layout h6 {
+  font-size: var(--fs-12);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.slidev-layout h6:not(.opacity-100) {
+  opacity: 1;
+}
+
+/* H1 title bar: hairline in color-border */
+.slidev-layout h1 {
+  border-bottom: 1px solid var(--ds-border);
+  padding-bottom: var(--s-2);
+  margin-bottom: var(--s-5);
+}
+
+/* Remove the title bar for cover and intro layouts */
 .slidev-layout.cover h1,
 .slidev-layout.intro h1 {
   border-bottom: none;
@@ -52,93 +132,98 @@ h1 {
   margin-bottom: 0;
 }
 
-/* Hyperlink styles */
-a {
-  color: var(--improving-hyperlink);
-  text-decoration: none;
+.slidev-layout strong,
+.slidev-layout b {
+  font-weight: var(--weight-semibold);
 }
 
-a:hover {
+.slidev-layout th {
+  font-weight: var(--weight-semibold);
+}
+
+.slidev-layout tr {
+  border-color: var(--ds-border);
+}
+
+/* Links: improving-blue, underlined, light-blue on hover */
+.slidev-layout a {
+  color: var(--ds-link);
+  border-bottom: none;
   text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
 
-a:visited {
-  color: var(--improving-hyperlink-followed);
+.slidev-layout a:hover {
+  color: var(--ds-link-hover);
 }
 
-/* Utility classes for Improving colors */
-.text-improving-dark1 {
-  color: var(--improving-dark1);
-}
-.text-improving-dark2 {
-  color: var(--improving-dark2);
-}
-.text-improving-light1 {
-  color: var(--improving-light1);
-}
-.text-improving-light2 {
-  color: var(--improving-light2);
-}
-.text-improving-accent1 {
-  color: var(--improving-accent1);
-}
-.text-improving-accent2 {
-  color: var(--improving-accent2);
-}
-.text-improving-accent3 {
-  color: var(--improving-accent3);
-}
-.text-improving-accent4 {
-  color: var(--improving-accent4);
-}
-.text-improving-accent5 {
-  color: var(--improving-accent5);
-}
-.text-improving-accent6 {
-  color: var(--improving-accent6);
-}
+/* Utility classes for design system colors */
+.text-improving-blue { color: var(--improving-blue); }
+.text-improving-light-blue { color: var(--improving-light-blue); }
+.text-accent-purple { color: var(--accent-purple); }
+.text-ink-900 { color: var(--ink-900); }
+.text-ink-700 { color: var(--ink-700); }
+.text-ink-500 { color: var(--ink-500); }
+.text-paper { color: var(--paper); }
 
-.bg-improving-dark1 {
-  background-color: var(--improving-dark1);
-}
-.bg-improving-dark2 {
-  background-color: var(--improving-dark2);
-}
-.bg-improving-light1 {
-  background-color: var(--improving-light1);
-}
-.bg-improving-light2 {
-  background-color: var(--improving-light2);
-}
-.bg-improving-accent1 {
-  background-color: var(--improving-accent1);
-}
-.bg-improving-accent2 {
-  background-color: var(--improving-accent2);
-}
-.bg-improving-accent3 {
-  background-color: var(--improving-accent3);
-}
-.bg-improving-accent4 {
-  background-color: var(--improving-accent4);
-}
-.bg-improving-accent5 {
-  background-color: var(--improving-accent5);
-}
-.bg-improving-accent6 {
-  background-color: var(--improving-accent6);
-}
+.bg-improving-blue { background-color: var(--improving-blue); }
+.bg-improving-light-blue { background-color: var(--improving-light-blue); }
+.bg-accent-green { background-color: var(--accent-green); }
+.bg-accent-orange { background-color: var(--accent-orange); }
+.bg-accent-purple { background-color: var(--accent-purple); }
+.bg-accent-gray { background-color: var(--accent-gray); }
+.bg-ink-900 { background-color: var(--ink-900); }
+.bg-ink-700 { background-color: var(--ink-700); }
+.bg-ink-500 { background-color: var(--ink-500); }
+.bg-ink-300 { background-color: var(--ink-300); }
+.bg-ink-100 { background-color: var(--ink-100); }
+.bg-ink-50 { background-color: var(--ink-50); }
+.bg-paper { background-color: var(--paper); }
+.bg-gradient-deep { background-image: var(--gradient-deep); }
+.bg-gradient-fresh { background-image: var(--gradient-fresh); }
 
+/* Deprecated PowerPoint palette utilities, kept for existing slides */
+.text-improving-dark1 { color: var(--improving-dark1); }
+.text-improving-dark2 { color: var(--improving-dark2); }
+.text-improving-light1 { color: var(--improving-light1); }
+.text-improving-light2 { color: var(--improving-light2); }
+.text-improving-accent1 { color: var(--improving-accent1); }
+.text-improving-accent2 { color: var(--improving-accent2); }
+.text-improving-accent3 { color: var(--improving-accent3); }
+.text-improving-accent4 { color: var(--improving-accent4); }
+.text-improving-accent5 { color: var(--improving-accent5); }
+.text-improving-accent6 { color: var(--improving-accent6); }
+
+.bg-improving-dark1 { background-color: var(--improving-dark1); }
+.bg-improving-dark2 { background-color: var(--improving-dark2); }
+.bg-improving-light1 { background-color: var(--improving-light1); }
+.bg-improving-light2 { background-color: var(--improving-light2); }
+.bg-improving-accent1 { background-color: var(--improving-accent1); }
+.bg-improving-accent2 { background-color: var(--improving-accent2); }
+.bg-improving-accent3 { background-color: var(--improving-accent3); }
+.bg-improving-accent4 { background-color: var(--improving-accent4); }
+.bg-improving-accent5 { background-color: var(--improving-accent5); }
+.bg-improving-accent6 { background-color: var(--improving-accent6); }
+
+/* Cover and intro: display type (48px), Poppins bold */
 .slidev-layout.cover,
 .slidev-layout.intro {
   @apply h-full grid;
 
   h1 {
-    @apply text-5xl leading-20;
+    font-size: var(--fs-48);
+    font-weight: var(--weight-bold);
+    letter-spacing: -0.03em;
+    line-height: var(--lh-tight);
   }
 
   h1 + p {
-    @apply -mt-2 opacity-50 mb-4;
+    @apply mb-4;
+    margin-top: var(--s-3);
+    color: var(--ds-text-muted);
+    font-size: var(--fs-22);
+    opacity: 1;
   }
 
   p + h2,
@@ -146,4 +231,38 @@ a:visited {
   table + h2 {
     @apply mt-10;
   }
+}
+
+/* Cover and intro on a dark ground: image, gradient or a dark color */
+.slidev-layout.on-dark {
+  --ds-text: var(--paper);
+  --ds-text-muted: var(--ink-100);
+  --ds-heading: var(--paper);
+  --ds-link: var(--paper);
+  --ds-link-hover: var(--ink-100);
+  --ds-border: rgba(255, 255, 255, 0.4);
+  color: var(--paper);
+}
+
+/* Logo on the cover: full + tagline, or knockout on dark grounds */
+.slidev-layout.cover .cover-logo {
+  position: absolute;
+  top: var(--s-6);
+  left: var(--s-7);
+  height: 4.5rem;
+  width: auto;
+}
+
+.slidev-layout.cover .logo-on-dark {
+  display: none;
+}
+
+.dark .slidev-layout.cover:not(.on-light) .logo-on-light,
+.slidev-layout.cover.on-dark .logo-on-light {
+  display: none;
+}
+
+.dark .slidev-layout.cover:not(.on-light) .logo-on-dark,
+.slidev-layout.cover.on-dark .logo-on-dark {
+  display: block;
 }
