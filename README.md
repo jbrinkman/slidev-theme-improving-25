@@ -79,7 +79,7 @@ customLogo: './logo.svg' # Custom logo path (optional)
 
 ### Design system
 
-The theme combines the Improving Design System with the official PowerPoint template (Preso-2026): the footer band, title and body type sizes and the template palette come from the template, and tokens, logos and components come from the design system. Styles are generated from the Design System tokens in `styles/tokens.css`, which also carries the font faces. Slide CSS reads those variables and never hard-codes brand values.
+The theme combines the Improving Design System with the official PowerPoint template (Preso-2026): the footer band, title and body type sizes and the template palette come from the template, and tokens, logos and components come from the design system. Styles are generated from the Design System tokens in `styles/tokens.css`, which also carries the font faces. Slide CSS reads those variables and hard-codes only the four badge tints (`--tint-*`), for which the design system defines no token.
 
 ### Color
 

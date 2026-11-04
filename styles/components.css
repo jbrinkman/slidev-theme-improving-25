@@ -1,8 +1,19 @@
 /*
  * Design system component classes for slide content: eyebrow, badge,
  * pull quote, stat block, feature card and CTA banner. Values come from
- * ./tokens.css.
+ * ./tokens.css, except the four tints below.
  */
+
+/*
+ * Tints from the design system component CSS (bundle.css). The design system
+ * defines no tokens for them; add them to its tokens.json, then regenerate.
+ */
+:root {
+  --tint-blue: #e5eef5;
+  --tint-green: #e1f3ee;
+  --tint-orange: #fdf1d9;
+  --tint-purple: #f3e3f2;
+}
 
 .eyebrow {
   font-family: var(--font-display);
@@ -26,10 +37,10 @@
   border-radius: var(--radius-full);
   letter-spacing: 0.02em;
 }
-.badge.blue { background: #e5eef5; color: var(--improving-blue); }
-.badge.green { background: #e1f3ee; color: var(--accent-green-ink); }
-.badge.orange { background: #fdf1d9; color: var(--accent-orange-ink); }
-.badge.purple { background: #f3e3f2; color: var(--accent-purple); }
+.badge.blue { background: var(--tint-blue); color: var(--improving-blue); }
+.badge.green { background: var(--tint-green); color: var(--accent-green-ink); }
+.badge.orange { background: var(--tint-orange); color: var(--accent-orange-ink); }
+.badge.purple { background: var(--tint-purple); color: var(--accent-purple); }
 .badge.gray { background: var(--ink-50); color: var(--ink-700); }
 
 /* Pull quote (overrides the Slidev blockquote defaults) */
@@ -93,7 +104,7 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: #e5eef5;
+  background: var(--tint-blue);
   color: var(--improving-blue);
   display: flex;
   align-items: center;
