@@ -40,10 +40,11 @@ export function isDarkBackground(background?: string, tone?: string): boolean {
       return false;
     [r, g, b] = [0, 2, 4].map(i => Number.parseInt(full.slice(i, i + 2), 16))
   } else {
-    const channels = background.match(/[\d.]+/g)
+    const channels = background.match(/[\d.]+%?/g)
     if (!channels || channels.length < 3)
       return false;
-    [r, g, b] = channels.slice(0, 3).map(Number)
+    // Percentage channels (rgb(100% 0% 0%)) scale to 0-255
+    [r, g, b] = channels.slice(0, 3).map(c => c.endsWith('%') ? Number.parseFloat(c) * 2.55 : Number(c))
   }
 
   // WCAG relative luminance; paper text beats ink text below this midpoint
