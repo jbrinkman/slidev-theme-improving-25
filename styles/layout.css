@@ -18,7 +18,7 @@
   --ds-text-muted: var(--color-text-muted);
   --ds-heading: var(--improving-blue);
   --ds-link: var(--color-primary);
-  --ds-link-hover: var(--color-primary-soft);
+  --ds-link-hover: var(--improving-blue-deep);
   --ds-border: var(--color-border);
   --ds-tint: var(--color-surface-alt);
 
