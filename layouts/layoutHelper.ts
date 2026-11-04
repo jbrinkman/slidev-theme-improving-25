@@ -20,9 +20,13 @@ function isColorValue(background?: string) {
 
 /**
  * Whether paper-colored text and the knockout logo are needed on a background.
- * Images and named gradients are treated as dark; colors are measured.
+ * Images and named gradients are treated as dark; colors are measured. An
+ * explicit tone ('light' or 'dark') wins, e.g. for a light image shown
+ * without a dim overlay.
  */
-export function isDarkBackground(background?: string): boolean {
+export function isDarkBackground(background?: string, tone?: string): boolean {
+  if (tone === 'light' || tone === 'dark')
+    return tone === 'dark'
   if (!background)
     return false
   if (!isColorValue(background))

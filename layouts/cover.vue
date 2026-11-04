@@ -29,11 +29,17 @@ const shouldDim = computed(() => {
 
 const style = computed(() => {
   // Only apply background styling if background is actually provided
-  return backgroundValue.value ? handleBackground(backgroundValue.value, shouldDim.value) : {}
+  if (!backgroundValue.value)
+    return {}
+  const result = handleBackground(backgroundValue.value, shouldDim.value)
+  // A light tone keeps ink text instead of the white forced for images
+  if (!onDark.value)
+    delete result.color
+  return result
 })
 
 // A fixed background pins the layout to light or dark; otherwise it follows the color scheme
-const onDark = computed(() => isDarkBackground(backgroundValue.value))
+const onDark = computed(() => isDarkBackground(backgroundValue.value, $frontmatter.backgroundTone))
 const backgroundMode = computed(() => {
   if (!backgroundValue.value)
     return ''
