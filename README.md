@@ -103,6 +103,8 @@ The theme combines the Improving Design System with the official PowerPoint temp
 
 Class-based components from the design system, usable in any slide: `eyebrow`, `badge` (`blue`, `green`, `orange`, `purple`, `gray`), `pull-quote`, `stat-grid` with `stat`, `feature-grid` with `feature-card`, and `cta-banner`. See `example.md` for markup.
 
+`cta-banner` follows the design system's paper text on `gradient-deep`. White text is 3.2:1 on the Light Blue stop and 2.2:1 on the green end, so keep to the large heading and one short line on the left, and keep body-size text away from the right edge.
+
 ### Layout Features
 
 - **Responsive design**: Works on different screen sizes
