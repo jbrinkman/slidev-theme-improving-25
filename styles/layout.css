@@ -63,6 +63,8 @@
 /* Base surface and body type: Khula 16px, as in the PowerPoint template */
 .slidev-layout {
   position: relative;
+  /* Keep negative z-index children (e.g. -z-10 images) above this background, not behind it */
+  isolation: isolate;
   font-family: var(--font-body);
   font-size: var(--fs-16);
   line-height: var(--lh-normal);
