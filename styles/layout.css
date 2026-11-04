@@ -267,3 +267,9 @@
 .slidev-layout.cover.on-dark .logo-on-dark {
   display: block;
 }
+
+/* Custom logos are forced to white on dark grounds, as the footer does */
+.dark .slidev-layout.cover:not(.on-light) .custom-logo,
+.slidev-layout.cover.on-dark .custom-logo {
+  filter: brightness(0) invert(1);
+}

@@ -49,7 +49,7 @@ const customLogo = computed(() => $frontmatter.customLogo)
 <template>
   <div class="slidev-layout cover text-center" :class="backgroundMode" :style="style">
     <template v-if="showLogo">
-      <img v-if="customLogo" :src="customLogo" alt="Improving" class="cover-logo">
+      <img v-if="customLogo" :src="customLogo" alt="Improving" class="cover-logo custom-logo">
       <template v-else>
         <img :src="logoFullTagline" alt="Improving" class="cover-logo logo-on-light">
         <img :src="logoKnockout" alt="Improving" class="cover-logo logo-on-dark">
