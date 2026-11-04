@@ -140,6 +140,12 @@
 .slidev-layout .cta-banner p {
   color: var(--paper);
 }
+.slidev-layout .cta-banner a {
+  color: var(--paper);
+}
+.slidev-layout .cta-banner a:hover {
+  color: var(--ink-100);
+}
 .slidev-layout .cta-banner h3 {
   margin: 0 0 var(--s-2);
   font-size: var(--fs-36);
