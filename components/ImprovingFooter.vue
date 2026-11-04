@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showFooter" class="improving-footer fixed bottom-0 left-0 right-0 h-12 z-10">
+    <div v-if="showFooter" class="improving-footer fixed bottom-0 left-0 right-0 h-10 z-10">
         <div class="footer-content grid grid-cols-4 h-full px-6">
             <!-- Column 1: Page Number -->
             <div class="flex items-center page-number">
@@ -36,7 +36,7 @@
 
             <!-- Column 4: Logo -->
             <div class="flex items-center justify-end">
-                <img v-if="showLogo" :src="logoSrc" alt="Improving" class="logo h-9 w-auto"
+                <img v-if="showLogo" :src="logoSrc" alt="Improving" class="logo h-8 w-auto"
                     :class="{ 'brightness-0 invert': hasCustomLogo }" />
             </div>
         </div>
@@ -99,31 +99,21 @@ const showFooter = computed(() =>
 </script>
 
 <style scoped>
-/* improving-blue ground, paper text; the approved gradient-deep marks the top edge */
+/* Light Blue to Green band, as in the PowerPoint template: gradient-fresh with paper text */
 .improving-footer {
-    background: var(--improving-blue);
+    background: var(--gradient-fresh);
     color: var(--paper);
     font-family: var(--font-body);
 }
 
-.improving-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--s-1);
-    background: var(--gradient-deep);
-}
-
 .page-number {
     font-family: var(--font-display);
-    font-size: var(--fs-18);
+    font-size: var(--fs-14);
     font-weight: var(--weight-medium);
 }
 
 .footer-label {
     font-size: var(--fs-14);
-    font-weight: var(--weight-semibold);
+    font-weight: var(--weight-medium);
 }
 </style>

@@ -168,7 +168,7 @@ customLogo: "./my-logo.svg" # Use custom logo
 
 ## Poppins for titles, Khula for text
 
-Headings are Poppins in Improving Blue. Body copy is Khula in Ink 900, set at 18px. Use sentence case for headlines, and reserve capitals for short eyebrows.
+Headings are Poppins in Improving Blue. Body copy is Khula in Ink 900, set at 16px. Use sentence case for headlines, and reserve capitals for short eyebrows.
 
 ### Sub-heading in Poppins medium
 

@@ -23,22 +23,22 @@
   --ds-tint: var(--color-surface-alt);
 
   /*
-   * Deprecated aliases for the former PowerPoint palette. They now resolve to
-   * the closest design system token; prefer the --improving-* and --ink-*
-   * tokens in new slides.
+   * PowerPoint template palette (Preso-2026 theme colors), kept at its exact
+   * values so existing slides do not shift. Prefer the --improving-* and
+   * --ink-* design system tokens in new slides.
    */
-  --improving-dark1: var(--ink-900);
-  --improving-dark2: var(--ink-700);
-  --improving-light1: var(--paper);
-  --improving-light2: var(--ink-100);
+  --improving-dark1: #000000;
+  --improving-dark2: #44546a;
+  --improving-light1: #ffffff;
+  --improving-light2: #e7e6e6;
   --improving-accent1: var(--improving-light-blue);
   --improving-accent2: var(--improving-blue);
-  --improving-accent3: var(--accent-orange);
+  --improving-accent3: #ff9300;
   --improving-accent4: var(--accent-green);
-  --improving-accent5: var(--ink-500);
+  --improving-accent5: #606060;
   --improving-accent6: var(--accent-orange);
-  --improving-hyperlink: var(--improving-blue);
-  --improving-hyperlink-followed: var(--improving-blue-deep);
+  --improving-hyperlink: #0563c1;
+  --improving-hyperlink-followed: #954f72;
 }
 
 /*
@@ -60,17 +60,17 @@
   --ds-tint: var(--ink-700);
 }
 
-/* Base surface and body type: Khula, body-lg */
+/* Base surface and body type: Khula 16px, as in the PowerPoint template */
 .slidev-layout {
   position: relative;
   font-family: var(--font-body);
-  font-size: var(--fs-18);
+  font-size: var(--fs-16);
   line-height: var(--lh-normal);
   background-color: var(--ds-surface);
   color: var(--ds-text);
 }
 
-/* Headings: Poppins, improving-blue, tight tracking */
+/* Headings: Poppins, improving-blue, tight tracking (h1 is bold, as in the PowerPoint template) */
 .slidev-layout h1,
 .slidev-layout h2,
 .slidev-layout h3,
@@ -86,6 +86,7 @@
 
 .slidev-layout h1 {
   font-size: var(--fs-36);
+  font-weight: var(--weight-bold);
 }
 
 .slidev-layout h2 {

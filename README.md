@@ -59,7 +59,7 @@ A comprehensive footer component that displays:
 - **Global title** - Presentation title from frontmatter
 - **Global author** - Author name from frontmatter  
 - **Company logo** - Improving logo with custom logo support
-- **Brand band** - Improving Blue with white text and the knockout logo, edged with the approved deep gradient
+- **Brand band** - The template's Light Blue to Green band (the approved fresh gradient) with white text and the knockout logo
 
 #### Footer Configuration
 Control footer elements via frontmatter:
@@ -79,7 +79,7 @@ customLogo: './logo.svg' # Custom logo path (optional)
 
 ### Design system
 
-Styles are generated from the Improving Design System tokens in `styles/tokens.css`, which also carries the font faces. Slide CSS reads those variables and never hard-codes brand values.
+The theme combines the Improving Design System with the official PowerPoint template (Preso-2026): the footer band, title and body type sizes and the template palette come from the template, and tokens, logos and components come from the design system. Styles are generated from the Design System tokens in `styles/tokens.css`, which also carries the font faces. Slide CSS reads those variables and never hard-codes brand values.
 
 ### Color
 
@@ -89,12 +89,12 @@ Styles are generated from the Improving Design System tokens in `styles/tokens.c
 - **Gradients**: only `gradient-deep` and `gradient-fresh` are approved
 - **Utility classes**: `text-improving-blue`, `bg-accent-green`, `bg-ink-100`, `bg-gradient-deep` and the rest of the design system palette
 - **Dark mode**: the design system defines a light theme only. Dark mode is derived from the same tokens (`ink-900` ground, Light Blue headings and links)
-- **Deprecated**: the former PowerPoint palette (`--improving-accent1` to `--improving-accent6`, `text-improving-accent*` and `bg-improving-accent*`) still works and now resolves to the nearest design system token
+- **PowerPoint template palette**: `--improving-dark1`, `--improving-accent1` to `--improving-accent6` and the matching `text-improving-*` and `bg-improving-*` classes keep the exact values from the official Preso-2026 template, including orange `#FF9300`
 
 ### Typography
 
-- **Headings**: [Poppins](https://fonts.google.com/specimen/Poppins) in Improving Blue, with tight tracking. `h5` and `h6` render as capitalized eyebrows
-- **Body**: [Khula](https://fonts.google.com/specimen/Khula) at 18px in Ink 900
+- **Headings**: [Poppins](https://fonts.google.com/specimen/Poppins) in Improving Blue, with tight tracking; `h1` is bold, as in the PowerPoint template. `h5` and `h6` render as capitalized eyebrows
+- **Body**: [Khula](https://fonts.google.com/specimen/Khula) at 16px in Ink 900
 - **Cover**: Poppins bold at 48px
 - **Links**: Improving Blue, underlined, Light Blue on hover
 - **Fonts are bundled**, so slides render and export offline. Only the code font (Fira Code) loads from Google Fonts
