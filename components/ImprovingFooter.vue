@@ -50,21 +50,13 @@ import defaultLogo from '../assets/logo-full-knockout.svg'
 
 const { $slidev, $frontmatter } = useSlideContext()
 
-// Layouts that show their own logo (cover) hide the footer logo
-const props = defineProps({
-    hideLogo: {
-        type: Boolean,
-        default: false,
-    },
-})
-
 // Control visibility based on frontmatter
 const showPageNumber = computed(() =>
     $frontmatter.showPageNumber !== false
 )
 
 const showLogo = computed(() =>
-    $frontmatter.showLogo !== false && !props.hideLogo
+    $frontmatter.showLogo !== false
 )
 
 const showAuthor = computed(() =>

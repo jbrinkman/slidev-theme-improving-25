@@ -80,10 +80,14 @@
 .slidev-layout h5,
 .slidev-layout h6 {
   font-family: var(--font-display);
-  color: var(--ds-heading);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-tight);
   line-height: var(--lh-tight);
+}
+
+/* Heading color at zero class specificity, so utilities like text-gray-500 still win */
+:where(.slidev-layout) :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--ds-heading);
 }
 
 .slidev-layout h1 {
@@ -132,7 +136,7 @@
 .slidev-layout.intro h1 {
   border-bottom: none;
   padding-bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: var(--s-3);
 }
 
 .slidev-layout strong,
@@ -218,7 +222,7 @@
     font-size: var(--fs-48);
     font-weight: var(--weight-bold);
     letter-spacing: -0.03em;
-    line-height: var(--lh-tight);
+    line-height: var(--lh-snug);
   }
 
   h1 + p {
@@ -245,33 +249,4 @@
   --ds-link-hover: var(--ink-100);
   --ds-border: rgba(255, 255, 255, 0.4);
   color: var(--paper);
-}
-
-/* Logo on the cover: full + tagline, or knockout on dark grounds */
-.slidev-layout.cover .cover-logo {
-  position: absolute;
-  top: var(--s-6);
-  left: var(--s-7);
-  height: 4.5rem;
-  width: auto;
-}
-
-.slidev-layout.cover .logo-on-dark {
-  display: none;
-}
-
-.dark .slidev-layout.cover:not(.on-light) .logo-on-light,
-.slidev-layout.cover.on-dark .logo-on-light {
-  display: none;
-}
-
-.dark .slidev-layout.cover:not(.on-light) .logo-on-dark,
-.slidev-layout.cover.on-dark .logo-on-dark {
-  display: block;
-}
-
-/* Custom logos are forced to white on dark grounds, as the footer does */
-.dark .slidev-layout.cover:not(.on-light) .custom-logo,
-.slidev-layout.cover.on-dark .custom-logo {
-  filter: brightness(0) invert(1);
 }

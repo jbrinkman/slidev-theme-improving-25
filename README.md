@@ -37,7 +37,7 @@ This theme provides the following layouts:
 The standard layout with ImprovingFooter. Includes H1 title bar styling with subtle borders and supports both light and dark modes.
 
 ### `cover`
-Title slide with the full logo and tagline at the top left. Set `background` in frontmatter to a color, an image URL or `gradient-deep`; on dark grounds the text switches to paper and the knockout logo is used. Images count as dark; set `backgroundTone: light` for a light image shown with `backgroundDim: false`, or `backgroundTone: dark` to force the dark treatment. Set `showLogo: false` to hide the logo.
+Title slide with the ImprovingFooter. Set `background` in frontmatter to a color, an image URL or `gradient-deep`; on dark grounds the text switches to paper. Images count as dark; set `backgroundTone: light` for a light image shown with `backgroundDim: false`, or `backgroundTone: dark` to force the dark treatment.
 
 ### `image-right`
 Two-column layout with content on the left and image on the right. Includes ImprovingFooter.
