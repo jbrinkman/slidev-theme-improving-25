@@ -3,8 +3,13 @@ theme: ./
 author: Joe Brinkman
 title: Slidev Theme - Improving
 transition: slide-left
-fonts:
-  sans: Poppins
+layout: cover
+---
+
+# Slidev Theme / Improving-25
+
+It’s what we do.
+
 ---
 
 <h1 class="text-center">Slidev Theme / Improving-25</h1>
@@ -121,78 +126,75 @@ customLogo: "./my-logo.svg" # Use custom logo
 
 ---
 
-# Improving Color Theme
+# Improving Color Palette
 
 <div class="grid grid-cols-2 gap-8 mt-4">
 
 <div>
-<h3 class="text-lg mb-3">Primary Colors</h3>
+<h3 class="mb-3">Brand and accents</h3>
 <div class="space-y-2 text-sm">
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-dark1 border border-gray-300 rounded"></div>
-    <span><strong>Dark1:</strong> #000000</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-dark2 border border-gray-300 rounded"></div>
-    <span><strong>Dark2:</strong> #44546A</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-light1 border border-gray-300 rounded"></div>
-    <span><strong>Light1:</strong> #FFFFFF</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-light2 border border-gray-300 rounded"></div>
-    <span><strong>Light2:</strong> #E7E6E6</span>
-  </div>
-</div>
-
-<h3 class="text-lg mb-3 mt-6">Special Colors</h3>
-<div class="space-y-2 text-sm">
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 border border-gray-300 rounded" style="background-color: #0563C1"></div>
-    <span><strong>Hyperlink:</strong> #0563C1</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 border border-gray-300 rounded" style="background-color: #954F72"></div>
-    <span><strong>Followed:</strong> #954F72</span>
-  </div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-improving-blue"></div><span><strong>Improving Blue:</strong> #005596 (headlines, links)</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-improving-light-blue"></div><span><strong>Light Blue:</strong> #4597D3</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-accent-green"></div><span><strong>Green:</strong> #5BC2A7</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-accent-orange"></div><span><strong>Orange:</strong> #F5BB41</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-accent-purple"></div><span><strong>Purple:</strong> #9D1D96 (special use)</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-accent-gray"></div><span><strong>Gray:</strong> #A7A8A9</span></div>
 </div>
 </div>
 
 <div>
-<h3 class="text-lg mb-3">Accent Colors</h3>
+<h3 class="mb-3">Neutrals</h3>
 <div class="space-y-2 text-sm">
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-accent1 border border-gray-300 rounded"></div>
-    <span><strong>Accent 1:</strong> #4597D3</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-accent2 border border-gray-300 rounded"></div>
-    <span><strong>Accent 2:</strong> #005596 (Headings)</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-accent3 border border-gray-300 rounded"></div>
-    <span><strong>Accent 3:</strong> #FF9300</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-accent4 border border-gray-300 rounded"></div>
-    <span><strong>Accent 4:</strong> #5BC2A7</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-accent5 border border-gray-300 rounded"></div>
-    <span><strong>Accent 5:</strong> #606060</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 bg-improving-accent6 border border-gray-300 rounded"></div>
-    <span><strong>Accent 6:</strong> #F5BB41</span>
-  </div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-ink-900"></div><span><strong>Ink 900:</strong> #0E1A26 (body text)</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-ink-700"></div><span><strong>Ink 700:</strong> #2A3A4A</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-ink-500"></div><span><strong>Ink 500:</strong> #5A6B7C (muted text)</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-ink-300"></div><span><strong>Ink 300:</strong> #9AA8B5</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-ink-100 border border-gray-300"></div><span><strong>Ink 100:</strong> #E3E8EC (borders)</span></div>
+  <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-ink-50 border border-gray-300"></div><span><strong>Ink 50:</strong> #F4F6F8</span></div>
 </div>
 </div>
 
 </div>
 
 <div class="mt-6 text-sm">
-<strong>Usage:</strong> Headings use <span class="text-improving-accent2">Accent 2</span> • Links use <a href="#">hyperlink colors</a> • Utility classes: <code>text-improving-accent1</code>, <code>bg-improving-accent2</code>
+<strong>Usage:</strong> Headlines use <span class="text-improving-blue">Improving Blue</span> • Utility classes: <code>text-improving-blue</code>, <code>bg-accent-green</code>, <code>bg-gradient-deep</code> • CSS variables: <code>--improving-blue</code>, <code>--ink-900</code>
+</div>
+
+---
+
+# Typography
+
+<p class="eyebrow">Poppins and Khula</p>
+
+## Poppins for titles, Khula for text
+
+Headings are Poppins in Improving Blue. Body copy is Khula in Ink 900, set at 16px. Use sentence case for headlines, and reserve capitals for short eyebrows.
+
+### Sub-heading in Poppins medium
+
+Captions and metadata use Khula in <span class="text-ink-500">Ink 500</span>.
+
+---
+
+# Components
+
+<div class="stat-grid mb-6">
+  <div class="stat"><div class="num">12</div><div class="caption">Cities</div></div>
+  <div class="stat"><div class="num">1,400</div><div class="caption">Improvers</div></div>
+  <div class="stat"><div class="num">25</div><div class="caption">Years</div></div>
+</div>
+
+<blockquote class="pull-quote">
+  Confident, plain-spoken, specific.
+  <footer>Improving brand voice</footer>
+</blockquote>
+
+<div class="mt-6 flex gap-2">
+  <span class="badge blue">Blue</span>
+  <span class="badge green">Green</span>
+  <span class="badge orange">Orange</span>
+  <span class="badge purple">Purple</span>
+  <span class="badge gray">Gray</span>
 </div>
 
 ---

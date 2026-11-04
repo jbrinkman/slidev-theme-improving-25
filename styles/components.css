@@ -1,0 +1,163 @@
+/*
+ * Design system component classes for slide content: eyebrow, badge,
+ * pull quote, stat block, feature card and CTA banner. Values come from
+ * ./tokens.css, except the four tints below.
+ */
+
+/*
+ * Tints from the design system component CSS (bundle.css). The design system
+ * defines no tokens for them; add them to its tokens.json, then regenerate.
+ */
+:root {
+  --tint-blue: #e5eef5;
+  --tint-green: #e1f3ee;
+  --tint-orange: #fdf1d9;
+  --tint-purple: #f3e3f2;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-12);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ds-heading);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--s-1) 10px;
+  font-family: var(--font-display);
+  font-size: var(--fs-12);
+  font-weight: var(--weight-semibold);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+.badge.blue { background: var(--tint-blue); color: var(--improving-blue); }
+.badge.green { background: var(--tint-green); color: var(--accent-green-ink); }
+.badge.orange { background: var(--tint-orange); color: var(--accent-orange-ink); }
+.badge.purple { background: var(--tint-purple); color: var(--accent-purple); }
+.badge.gray { background: var(--ink-50); color: var(--ink-700); }
+
+/* Pull quote (overrides the Slidev blockquote defaults) */
+.slidev-layout blockquote.pull-quote {
+  margin: 0;
+  padding: var(--s-4) var(--s-5);
+  background: transparent;
+  border: none;
+  border-left: 4px solid var(--accent-green);
+  border-radius: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-28);
+  line-height: var(--lh-snug);
+  font-weight: var(--weight-medium);
+  color: var(--ds-text);
+  max-width: 60ch;
+}
+.slidev-layout blockquote.pull-quote footer {
+  display: block;
+  margin-top: var(--s-3);
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+  font-weight: var(--weight-regular);
+  color: var(--ds-text-muted);
+}
+
+/* Stat block */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--s-5);
+}
+.stat .num {
+  font-family: var(--font-display);
+  font-size: var(--fs-64);
+  font-weight: var(--weight-bold);
+  color: var(--ds-heading);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.stat .caption {
+  margin-top: 6px;
+  font-size: var(--fs-12);
+  letter-spacing: 0.02em;
+  color: var(--ds-text-muted);
+}
+
+/* Feature card */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+}
+.feature-card {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-lg);
+  padding: var(--s-5);
+}
+.feature-card .ico {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--tint-blue);
+  color: var(--improving-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--s-4);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--fs-22);
+}
+.slidev-layout .feature-card h3 {
+  margin: 0 0 var(--s-2);
+  font-size: var(--fs-22);
+}
+.feature-card p {
+  margin: 0;
+  font-size: var(--fs-16);
+  line-height: var(--lh-normal);
+  color: var(--ds-text-muted);
+}
+
+/* CTA banner: gradient-deep ground, paper text */
+.cta-banner {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  gap: var(--s-5);
+  padding: var(--s-7);
+  border-radius: var(--radius-xl);
+  background: var(--gradient-deep);
+  color: var(--paper);
+}
+.slidev-layout .cta-banner h3,
+.slidev-layout .cta-banner p {
+  color: var(--paper);
+}
+.slidev-layout .cta-banner a {
+  color: var(--paper);
+}
+.slidev-layout .cta-banner a:hover {
+  color: var(--ink-100);
+}
+.slidev-layout .cta-banner h3 {
+  margin: 0 0 var(--s-2);
+  font-size: var(--fs-36);
+  font-weight: var(--weight-semibold);
+}
+.cta-banner p {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+.cta-banner .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  justify-content: flex-end;
+}

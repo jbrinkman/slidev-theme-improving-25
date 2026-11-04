@@ -63,8 +63,11 @@
     "colorSchema": "both",
     "defaults": {
       "fonts": {
-        "sans": "Poppins",
-        "mono": "Fira Code"
+        "sans": "Khula",
+        "mono": "Fira Code",
+        "webfonts": [
+          "Fira Code"
+        ]
       }
     }
   }

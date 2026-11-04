@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useSlideContext } from '@slidev/client'
-import { handleBackground } from './layoutHelper'
+import { handleBackground, isDarkBackground } from './layoutHelper'
 
 const { $frontmatter } = useSlideContext()
 
@@ -27,12 +27,26 @@ const shouldDim = computed(() => {
 
 const style = computed(() => {
   // Only apply background styling if background is actually provided
-  return backgroundValue.value ? handleBackground(backgroundValue.value, shouldDim.value) : {}
+  if (!backgroundValue.value)
+    return {}
+  const result = handleBackground(backgroundValue.value, shouldDim.value)
+  // A light tone keeps ink text instead of the white forced for images
+  if (!onDark.value)
+    delete result.color
+  return result
+})
+
+// A fixed background pins the layout to light or dark; otherwise it follows the color scheme
+const onDark = computed(() => isDarkBackground(backgroundValue.value, $frontmatter.backgroundTone))
+const backgroundMode = computed(() => {
+  if (!backgroundValue.value)
+    return ''
+  return onDark.value ? 'on-dark' : 'on-light'
 })
 </script>
 
 <template>
-  <div class="slidev-layout cover text-center" :style="style">
+  <div class="slidev-layout cover text-center" :class="backgroundMode" :style="style">
     <div class="my-auto w-full">
       <slot />
     </div>
