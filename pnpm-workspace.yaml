@@ -1,0 +1,7 @@
+# esbuild's install script is allowed to run. pnpm 11+ fails the install on
+# unreviewed build scripts (ERR_PNPM_IGNORED_BUILDS); older versions only warn.
+allowBuilds:
+  esbuild: true
+# Same allowance for pnpm 10, which reads this key instead.
+onlyBuiltDependencies:
+  - esbuild
