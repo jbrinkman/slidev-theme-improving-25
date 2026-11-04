@@ -198,8 +198,6 @@ Captions and metadata use Khula in <span class="text-ink-500">Ink 500</span>.
 </div>
 
 ---
-
----
 layout: center
 class: "text-center"
 ---
